@@ -1,0 +1,68 @@
+
+:root{
+    --blanco:  #ffffff;
+    --oscuro:  #212121;
+    --primario: #FFc107;
+    --secundario: #0097A7;
+    --gris: #757575;
+
+    --fuente--principal: 3.8rem;
+}
+
+
+html{ /* Estas lineas html y body hacen que pueda ser facil de utilizar los rem*/
+    font-size: 62.5%;
+}
+
+body{ /*Tambien lo que va hacer es adaptarse con mas sencilles a diferentes ordenadores*/
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;  
+}
+
+.titulo{
+    text-align: center;
+    font-size: var(--fuente--principal); /*rem es una medida de tamaño en computadora*/
+
+}
+
+/*Solo el span se va aplicar a todos los span que haya
+En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivos h1*/
+.titulo span{
+    font-size: 2rem;  /* 1rem = 10px, solo que los rem son mas facil que se adapten a las webs*/
+}
+
+.contenedor
+{
+    width: 120rem;
+    /*Margin es para margenes, darle espacio*/
+    /*top right bottom left*/
+    margin: 0 auto;
+
+    /* Es lo mismo que arriba margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;*/
+}
+
+.nav-bg
+{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal 
+{
+    padding: 1rem;
+    /*El display flex y el justify es para acomodar los links*/
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.navegacion-principal a
+{
+    color: var(--blanco);
+    /*Esto es para quitar el la raya de abaja de los navegadores*/
+    text-decoration: none;
+    
+}
