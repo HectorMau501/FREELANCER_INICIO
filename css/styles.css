@@ -31,8 +31,7 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
     font-size: 2rem;  /* 1rem = 10px, solo que los rem son mas facil que se adapten a las webs*/
 }
 
-.contenedor
-{
+.contenedor{
     width: 120rem;
     /*Margin es para margenes, darle espacio*/
     /*top right bottom left*/
@@ -44,14 +43,11 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
     margin-left: auto;*/
 }
 
-.nav-bg
-{
+.nav-bg{
     background-color: var(--secundario);
 }
 
-.navegacion-principal 
-{
-    padding: 1rem;
+.navegacion-principal {
     /*El display flex y el justify es para acomodar los links*/
     display: flex;
     justify-content: space-between;
@@ -59,10 +55,30 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
 }
 
 
-.navegacion-principal a
-{
+.navegacion-principal a{
     color: var(--blanco);
     /*Esto es para quitar el la raya de abaja de los navegadores*/
     text-decoration: none;
-    
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 1rem;
 }
+
+.navegacion-principal a:hover
+{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+@media (min-width: 480px) {
+    h1{
+
+    }
+}
+
+@media (min-width: 768px) {
+    h1{
+
+    }
+}
+
