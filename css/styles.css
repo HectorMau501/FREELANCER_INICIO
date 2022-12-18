@@ -1,4 +1,5 @@
 
+    /*Plantilla de colores*/
 :root{
     --blanco:  #ffffff;
     --oscuro:  #212121;
@@ -9,30 +10,27 @@
     --fuente--principal: 3.8rem;
 }
 
+    /*Globales*/
 
 html{ /* Estas lineas html y body hacen que pueda ser facil de utilizar los rem*/
     font-size: 62.5%;
+    box-sizing: border-box;
 }
+
+/* El primer asterisco es para que selecciona todos los elementos de html 
+La coma es para que si hay dos clases que tengan los mismos componentes
+ pues que simplemente juntarlas con la coma y que le aplique el box-sizing: border-box;*/
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
 
 body{ /*Tambien lo que va hacer es adaptarse con mas sencilles a diferentes ordenadores*/
     font-size: 16px;
     font-family: 'Krub', sans-serif;  
 }
 
-.titulo{
-    text-align: center;
-    font-size: var(--fuente--principal); /*rem es una medida de tamaño en computadora*/
-
-}
-
-/*Solo el span se va aplicar a todos los span que haya
-En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivos h1*/
-.titulo span{
-    font-size: 2rem;  /* 1rem = 10px, solo que los rem son mas facil que se adapten a las webs*/
-}
-
 .contenedor{
-    width: 120rem;
+    max-width: 120rem;
     /*Margin es para margenes, darle espacio*/
     /*top right bottom left*/
     margin: 0 auto;
@@ -43,6 +41,53 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
     margin-left: auto;*/
 }
 
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;/*Para hacer la letra mayus*/
+    font-weight: bolder;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+
+    /*Tipografia*/ 
+h1{
+    font-size: 3.8rem; /*rem es una medida de tamaño en computadora*/
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+
+/*Solo el span se va aplicar a todos los span que haya
+En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivos h1*/
+
+    /*Titulos*/
+.titulo span{
+    font-size: 2rem;  /* 1rem = 10px, solo que los rem son mas facil que se adapten a las webs*/
+}
+
+    /*Navegacion Principal*/
 .nav-bg{
     background-color: var(--secundario);
 }
@@ -50,12 +95,38 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
 .navegacion-principal {
     /*El display flex y el justify es para acomodar los links*/
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    
 }
+
+/*Los media Queries pueden hererar cosas de las clases*/
+@media (min-width: 768px) {
+    .navegacion-principal{
+        flex-direction: row;
+    }
+}
+
+/*ejemplos de media Quries en otros dispositivos
+para celular
+@media (min-width: 480px) {
+}
+
+para Tablet
+@media (min-width: 768px) {
+}
+
+para Laptop
+@media (min-width: 1148px) {
+}
+
+para Laptop
+@media (min-width: 1400px) {
+}*/
 
 
 .navegacion-principal a{
+    display: block;
+    text-align: center;
     color: var(--blanco);
     /*Esto es para quitar el la raya de abaja de los navegadores*/
     text-decoration: none;
@@ -70,15 +141,39 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
     color: var(--oscuro);
 }
 
-@media (min-width: 480px) {
-    h1{
-
-    }
+    /*Hero*/
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat; /*Para que no se repita la imagen*/
+    background-size: cover; /*Para que alcance a cubrir el ancho*/
+    height: 450px; /*El tamanio de la foto*/
+    /*padding: 20px; Para bajar el titulo*/
+    position: relative;
 }
 
-@media (min-width: 768px) {
-    h1{
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0 0 0 / 70%);
+    width: 100%;
+    height: 100%;
 
-    }
+    /*Para alinear vertical y horizontalmente los textos*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+
 
