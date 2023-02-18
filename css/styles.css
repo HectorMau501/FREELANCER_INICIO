@@ -15,6 +15,16 @@
 html{ /* Estas lineas html y body hacen que pueda ser facil de utilizar los rem*/
     font-size: 62.5%;
     box-sizing: border-box;
+    scroll-snap-type: y mandatory ; /*Este es para que haga scrool de arriba hacia abajo*/
+}
+
+    /*Scroll Snap*/
+.servicios,
+.navegacion-principal,
+.formulario{
+    /*Estos scroll son para que se detenga el scroll como en cada seccion*/
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 /* El primer asterisco es para que selecciona todos los elementos de html 
@@ -27,6 +37,7 @@ La coma es para que si hay dos clases que tengan los mismos componentes
 body{ /*Tambien lo que va hacer es adaptarse con mas sencilles a diferentes ordenadores*/
     font-size: 16px;
     font-family: 'Krub', sans-serif;  
+    background-image: linear-gradient(to top, #DFE9F3 0%, var(--blanco)); /*Para el color de fondo*/
 }
 
 .contenedor{
@@ -53,12 +64,26 @@ body{ /*Tambien lo que va hacer es adaptarse con mas sencilles a diferentes orde
     border-radius: 0.5rem;
     width: 90%;
     text-align: center;
+    border: none;
 }
 
 @media (min-width: 768px) {
     .boton{
         width: auto;
     }
+}
+
+/*El hover es cuando pones el cursor en un enlace*/
+.boton:hover{
+    cursor: pointer;
+}
+
+.sombra{
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+
 }
 
     /*Tipografia*/ 
@@ -85,6 +110,25 @@ En cambio si lo ponemos con un h1 este solo lo va aplicar a todos los respectivo
     /*Titulos*/
 .titulo span{
     font-size: 2rem;  /* 1rem = 10px, solo que los rem son mas facil que se adapten a las webs*/
+}
+
+        /**Utilidades**/
+.w-sm-100{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
 }
 
     /*Navegacion Principal*/
@@ -149,6 +193,7 @@ para Laptop
     height: 450px; /*El tamanio de la foto*/
     /*padding: 20px; Para bajar el titulo*/
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido-hero{
@@ -176,4 +221,115 @@ para Laptop
 }
 
 
+/*Css se agrupa dentro del area determinada.
+ grid nos permite definir la ubicacion y tamaño de los elementos
+de tu sitio web por el contrario flexbox crece automaticamente*/
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3,1fr); /*Para tamanio y dividir las columnas y los fr es lo mismo que decir 33.3% a cada una y el repeat es para que te lo repita tres veces*/
+        column-gap: 1rem;
+    
+        /*grid: 200px 800px / 200px 200px; Primero rows y columns. Es lo mismo que lo de arriba*/
+    }
+}
+ /*para Alinear en el centro los iconos*/
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal; /*Para la negrita de la letra*/
+}
+
+.servicio p{
+    line-height: 2; /*Para cambiar el internileado*/
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;/*Para si tienes la altura y el ancho que se haga un circulo*/
+    display: flex;
+    justify-content: space-evenly; /* Para alinear el contenido al centro*/
+    align-items: center; /*Para centrar los iconos*/
+}
+
+    /**Contactos**/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem , 100%);/*Ancho del recuadro gris Utiliza el valor mas pequeño*/
+    margin: 0 auto; /*Para centrar horizontalemente. El margin se utiliza mas que nada cuando sea un formulario*/
+    padding: 2rem; /*Padding sirve para que no este pegado la informacion al recuadro*/
+    border-radius: 1rem;
+}   
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /*Mayus*/
+    font-weight: 700; /*La intensidad de la negrita*/
+    margin-bottom: 2rem;
+    color:  var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem ; /*Esto es para dividir las filas y darles el tamaño adecuado*/
+        column-gap: 1rem; /*Separacion de columnas*/
+    }
+
+    /*Esto lo que hace es que si hay cuatro campo de una misma clase, es seleccionar solo la que deseas*/
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1 / 3;/*Esto es para que una fila vaya desde una determinada coordenada hacia otra*/
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+    /**Selectores**/
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+
+/*.campo input[type = "text"]{
+    background-color: red;
+} */  
+
+.enviar .boton{
+    width: 100%;
+}
+
+    /**Footer**/
+.footer{
+    text-align: center;
+}
 
